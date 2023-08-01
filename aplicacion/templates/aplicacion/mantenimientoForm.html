@@ -1,0 +1,22 @@
+{% extends 'aplicacion/index.html' %}
+{% load static %}
+
+{% block titulo %}            
+Mantenimientos
+{% endblock titulo %}
+
+{% block subtitulo %}            
+{% endblock subtitulo %}
+
+{% block contenido %}
+
+<h2>Registrar un nuevo Mantenimiento.</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock contenido %}

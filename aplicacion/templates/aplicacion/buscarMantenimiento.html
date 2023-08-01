@@ -1,0 +1,23 @@
+
+
+{% extends 'aplicacion/index.html' %}
+{% load static %}
+
+{% block titulo %}            
+Mantenimientos
+{% endblock titulo %}
+
+{% block subtitulo %}            
+{% endblock subtitulo %}
+
+{% block contenido %}
+
+<h2>Buscar un registro de mantenimiento.</h2>
+<form action="/aplicacion/buscar_mantenimiento" method="get">
+    {% csrf_token %}
+    <input type="number" name="numero_operacion" id="numero_operacion">
+    <input type="submit" value="Buscar">
+</form>
+
+{% endblock contenido %}
+

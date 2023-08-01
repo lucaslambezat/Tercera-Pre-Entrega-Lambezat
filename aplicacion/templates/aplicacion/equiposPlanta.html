@@ -1,0 +1,34 @@
+{% extends 'aplicacion/index.html' %}
+{% load static %}
+
+{% block titulo %}            
+Equipos en Planta 2023
+{% endblock titulo %}
+
+{% block subtitulo %}            
+{% endblock subtitulo %}
+
+{% block contenido %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Comision</th>
+            <th>Sector</th>
+            <th>(Referencia)</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for equipo in equipos %}
+    <tr>
+        <td>{{ equipo.id }}</td>
+        <td>{{ equipo.nombre }}</td>
+        <td>{{ equipo.marca }}</td>
+        <td>{{ equipo.sector }}</td>
+        <td>{{ equipo.referencia }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
