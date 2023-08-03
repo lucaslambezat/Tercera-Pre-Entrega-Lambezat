@@ -2,13 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-#Voy a crear los modelos que escribimos la clase anterior. Son las tablas o modelos que van a componer nuestro proyecto.
-
-class Curso(models.Model):
-
-    nombre = models.CharField(max_length=50)
-    comision = models.IntegerField()
-
 class Mantenimiento(models.Model):
 
     numero_operacion = models.IntegerField()
@@ -22,7 +15,7 @@ class Equipo(models.Model):
     nombre = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
     sector = models.CharField(max_length=50)
-    referencia = models.IntegerField()
+    referencia = models.CharField(max_length=6)
     
 
 class Empleado(models.Model):

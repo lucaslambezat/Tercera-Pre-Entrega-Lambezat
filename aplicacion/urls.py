@@ -9,16 +9,18 @@ urlpatterns = [
     path('equipos/', equipos, name='equipos'),
     path('mantenimientos/', mantenimientos, name='mantenimientos'),
     path('empleados/', empleados, name='empleados'),
+
     path('mantenimiento_form/', mantenimientoForm, name='mantenimiento_form'),
-    path('buscar_mantenimiento/', buscarMantenimiento, name='buscar_mantenimiento'),
+    path('busquedaMantenimiento/', busquedaMantenimiento, name='busquedaMantenimiento'),
+    path('buscarMantenimiento/', buscarMantenimiento),
 
-    path('cursos/', cursos, name='cursos'),
+    path('equipo_form/', equipoForm, name='equipo_form'),
+    path('busquedaEquipo/', busquedaEquipo, name='busquedaEquipo'),
+    path('buscarEquipo/', buscarEquipo),
 
-    #path('curso_form2/', cursoForm2, name='curso_form2'),
+    path('empleado_form/', empleadoForm, name='empleado_form'),
+    path('empleadoMantenimiento/', busquedaEmpleado, name='busquedaEmpleado'),
+    path('buscarEmpleado/', buscarEmpleado),
 
-    path('buscar_comision/', buscarComision, name='buscar_comision'),
-    path('buscar2/', buscar2, name='buscar2'),
-
-    
     
 ]

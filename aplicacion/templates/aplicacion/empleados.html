@@ -2,30 +2,54 @@
 {% load static %}
 
 {% block titulo %}            
-Equipos en Planta 2023
+Empleados
 {% endblock titulo %}
 
+{% block imagen_fondo %}
+<header class="masthead" style="background-image: url(https://media.istockphoto.com/id/1209218599/es/foto/ingenieros-y-t%C3%A9cnicos-se-unen-para-trabajar-juntos-los-ingenieros-tienen-chalecos-de-seguridad.jpg?s=612x612&w=0&k=20&c=5l-5y_orI4RdzPfUaUKDcPSPqnT4A2AKfVrCN_hQ0bM=)">
+{% endblock imagen_fondo %}
+
+{% block subtitulo %}            
+{% endblock subtitulo %}
+
 {% block contenido %}
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'empleado_form' %}">Alta de Empleado →</a>
+</div>
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'busquedaEmpleado' %}">Búsqueda de Empleado →</a>
+</div>
+
+<br>
+<br>
+
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Nombre</th>
-            <th>Comision</th>
-            <th>Sector</th>
-            <th>(Referencia)</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+            <th>Email</th>
+            <th>Teléfono</th>
         </tr>
     </thead>
     <tbody>
     {% for empleado in empleados %}
     <tr>
-        <td>{{ equipo.id }}</td>
-        <td>{{ equipo.nombre }}</td>
-        <td>{{ equipo.marca }}</td>
-        <td>{{ equipo.sector }}</td>
-        <td>{{ equipo.referencia }}</td>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.apellido }}</td>
+        <td>{{ empleado.rol }}</td>
+        <td>{{ empleado.email }}</td>
+        <td>{{ empleado.telefono }}</td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
+
+<br>
+    <div>
+        <hr class="my-4" />
+    </div>
+<br>
 {% endblock contenido %}

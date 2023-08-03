@@ -1,0 +1,31 @@
+{% extends 'aplicacion/equipos.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h4>
+    Resultado de la búsqueda para la referencia: {{referencia}}
+</h4>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca y Modelo</th>
+            <th>Sector</th>
+            <th>(Referencia)</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for equipo in equipos %}
+    <tr>
+        <td>{{ equipo.nombre }}</td>
+        <td>{{ equipo.marca }}</td>
+        <td>{{ equipo.sector }}</td>
+        <td>{{ equipo.referencia }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

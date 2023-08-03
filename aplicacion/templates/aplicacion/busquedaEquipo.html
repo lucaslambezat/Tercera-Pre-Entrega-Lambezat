@@ -1,0 +1,17 @@
+{% extends 'aplicacion/equipos.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h2>Búsqueda de Equipos en Planta.</h2>
+<br>
+<h5>Ingrese el número de referencia del equipo:</h5>
+<form action="/aplicacion/buscarEquipo/" method="GET">
+    
+    <input type="text" name="referencia" id="referencia" maxlength="6">
+    
+    <input type="submit" value="Buscar.">
+
+</form>
+<br>
+{% endblock contenido %}
