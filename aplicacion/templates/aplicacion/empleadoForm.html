@@ -1,0 +1,18 @@
+{% extends 'aplicacion/empleados.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h2>Alta de nuevo empleado/operario en la planta.</h2>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <br>
+    <input type="submit" value="Enviar">
+</form>
+<br>
+
+{% endblock contenido %}

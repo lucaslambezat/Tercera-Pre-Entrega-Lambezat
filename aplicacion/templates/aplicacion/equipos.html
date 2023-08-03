@@ -1,0 +1,53 @@
+{% extends 'aplicacion/index.html' %}
+{% load static %}
+
+{% block titulo %}            
+Equipos en Planta 2023
+{% endblock titulo %}
+
+{% block imagen_fondo %}
+<header class="masthead" style="background-image: url(https://www.equiposarriaga.com.mx/data1/images/slide3.jpg)">
+{% endblock imagen_fondo %}
+
+{% block subtitulo %}            
+{% endblock subtitulo %}
+
+{% block contenido %}
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'equipo_form' %}">Nuevo Registro de Equipo →</a>
+</div>
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'busquedaEquipo' %}">Búsqueda de Equipo →</a>
+</div>
+
+<br>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca y Modelo</th>
+            <th>Sector</th>
+            <th>(Referencia)</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for equipo in equipos %}
+    <tr>
+        <td>{{ equipo.nombre }}</td>
+        <td>{{ equipo.marca }}</td>
+        <td>{{ equipo.sector }}</td>
+        <td>{{ equipo.referencia }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br>
+    <div>
+        <hr class="my-4" />
+    </div>
+<br>
+{% endblock contenido %}
