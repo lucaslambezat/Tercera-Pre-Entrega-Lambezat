@@ -1,0 +1,32 @@
+{% extends 'aplicacion/equipo_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca y Modelo</th>
+            <th>Sector</th>
+            <th>(Referencia)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ object.nombre }}</td>
+        <td>{{ object.marca }}</td>
+        <td>{{ object.sector }}</td>
+        <td>{{ object.referencia }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'equipos' %}">Volver →</a>
+</div>
+
+<br>
+
+{% endblock contenido %}

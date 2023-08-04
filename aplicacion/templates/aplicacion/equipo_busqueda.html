@@ -1,0 +1,15 @@
+{% extends 'aplicacion/equipo_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h2>Ingresar un número de referencia:</h2>
+<br>
+<form action="/aplicacion/buscar_equipo/" method="get">
+    {% csrf_token %}
+    <input type="text" name="referencia" id="referencia">
+    <input type="submit" value="Buscar">
+</form>
+<br>
+
+{% endblock contenido %}

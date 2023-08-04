@@ -1,0 +1,74 @@
+{% extends 'aplicacion/index.html' %}
+{% load static %}
+
+{% block titulo %}            
+Equipos en Planta 2023
+{% endblock titulo %}
+
+{% block imagen_fondo %}
+<header class="masthead" style="background-image: url(https://www.equiposarriaga.com.mx/data1/images/slide3.jpg)">
+{% endblock imagen_fondo %}
+
+{% block subtitulo %}            
+{% endblock subtitulo %}
+
+{% block contenido %}
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'create_equipo' %}">Nuevo Registro de Equipo →</a>
+</div>
+<div class="d-flex justify-content-center mb-4"> 
+    <a class="btn btn-primary text-uppercase" href="{% url 'busqueda_equipo' %}">Búsqueda de Equipo →</a>
+</div>
+
+<br>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca y Modelo</th>
+            <th>Sector</th>
+            <th>(Referencia)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for p in equipo_list %}
+    <tr>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.marca }}</td>
+        <td>{{ p.sector }}</td>
+        <td>{{ p.referencia }}</td>
+        <td>
+            <a
+            href="{% url 'detail_equipo' p.id %}"
+            class="btn btn-info"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-search fa-sm" title="View Record"></i>
+            </a>
+            <a
+              href="{% url 'update_equipo' p.id %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'delete_equipo' p.id %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+          </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br>
+    <div>
+        <hr class="my-4" />
+    </div>
+<br>
+{% endblock contenido %}

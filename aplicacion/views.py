@@ -1,23 +1,104 @@
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import *
 from .forms import *
+
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+
 
 def index(request):
     return render(request, "aplicacion/index.html")
 
 #Creamos rutas para cada uno de los modelos.
 
-def equipos(request):
-    ctx = {"equipos": Equipo.objects.all()}
-    return render(request, "aplicacion/equiposPlanta.html", ctx)
+class EquipoList(ListView):
+    model = Equipo
+
+class EquipoCreate(CreateView):
+    model = Equipo
+    fields = ['nombre', 'marca', 'sector', 'referencia']
+    success_url = reverse_lazy('equipos')
+
+class EquipoDetail(DetailView):
+    model = Equipo
+
+class EquipoUpdate(UpdateView):
+    model = Equipo
+    fields = ['nombre', 'marca', 'sector', 'referencia']
+    success_url = reverse_lazy('equipos')
+
+class EquipoDelete(DeleteView):
+    model = Equipo
+    success_url = reverse_lazy('equipos')
+
+def busquedaEquipo(request):
+
+    return render (request, "aplicacion/equipo_busqueda.html")
+
+def buscarEquipo(request):
+
+    if request.GET["referencia"]:
+
+        referencia = request.GET['referencia']
+        equipos = Equipo.objects.filter(referencia__icontains=referencia)
+        return render(request, 
+                      "aplicacion/equipo_resultados.html", 
+                      {"referencia": referencia, "equipos":equipos})
+    else:
+
+        return HttpResponse("No se ingresaron datos para buscar!")
+
+
+
+
+
+class EmpleadoList(ListView):
+    model = Empleado
+
+class EmpleadoCreate(CreateView):
+    model = Empleado
+    fields = ['nombre', 'apellido', 'rol', 'email', 'telefono']
+    success_url = reverse_lazy('empleados')
+
+class EmpleadoDetail(DetailView):
+    model = Empleado
+
+class EmpleadoUpdate(UpdateView):
+    model = Empleado
+    fields = ['nombre', 'apellido', 'rol', 'email', 'telefono']
+    success_url = reverse_lazy('empleados')
+
+class EmpleadoDelete(DeleteView):
+    model = Empleado
+    success_url = reverse_lazy('empleados')
+
+def busquedaEmpleado(request):
+
+    return render (request, "aplicacion/empleado_busqueda.html")
+
+def buscarEmpleado(request):
+
+    if request.GET["apellido"]:
+
+        apellido = request.GET['apellido']
+        empleados = Empleado.objects.filter(apellido__icontains=apellido)
+        return render(request, 
+                      "aplicacion/empleado_resultados.html", 
+                      {"apellido": apellido, "empleados":empleados})
+    else:
+
+        return HttpResponse("No se ingresaron datos para buscar!")
+
+
+
+
 
 def mantenimientos(request):
     ctx = {"mantenimientos": Mantenimiento.objects.all()}
     return render(request, "aplicacion/mantenimientos.html", ctx)
 
-def empleados(request):
-    ctx = {"empleados": Empleado.objects.all()}
-    return render(request, "aplicacion/empleados.html", ctx)
+
 
 def mantenimientoForm(request):
     if request.method == "POST":
@@ -39,30 +120,4 @@ def mantenimientoForm(request):
         miForm = MantenimientoForm()
     return render(request, "aplicacion/mantenimientoForm.html", {"form":miForm})
 
-def buscarMantenimiento(request):
-    if request.GET['numero_operacion']:
-        numero_operacion = request.GET['numero_operacion']
-        mantenimientos = Mantenimiento.objects.filter(numero_operacion__icontains=numero_operacion)
-        return render(request, 
-                      "aplicacion/resultadosMantenimientos.html", 
-                      {"numero_operacion": numero_operacion, "mantenimientos":mantenimientos})
-    #return HttpResponse("No se ingresaron datos para buscar!")
 
-
-
-
-def cursos(request):
-    ctx = {"cursos": Curso.objects.all()}
-    return render(request, "aplicacion/cursos.html",ctx)
-
-def buscarComision(request):
-    return render(request, "aplicacion/buscarComision.html")
-
-def buscar2(request):
-    if request.GET['comision']:
-        comision = request.GET['comision']
-        cursos = Curso.objects.filter(comision__icontains=comision)
-        return render(request, 
-                      "aplicacion/resultadosComision.html", 
-                      {"comision": comision, "cursos":cursos})
-    """return HttpResponse("No se ingresaron datos para buscar!")"""

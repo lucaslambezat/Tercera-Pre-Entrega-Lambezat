@@ -1,0 +1,39 @@
+{% extends 'aplicacion/empleado_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h4>
+    Resultado de la búsqueda para el apellido: {{apellido}}
+</h4>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+            <th>Email</th>
+            <th>Telefono</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for empleado in empleados %}
+    <tr>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.apellido }}</td>
+        <td>{{ empleado.rol }}</td>
+        <td>{{ empleado.email }}</td>
+        <td>{{ empleado.telefono }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'busqueda_empleado' %}">Volver →</a>
+</div>
+
+<br>
+
+{% endblock contenido %}

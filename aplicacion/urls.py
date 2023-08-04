@@ -6,19 +6,29 @@ urlpatterns = [
     #Si a continuación de la ruta aplicación no aparece nada. Entonces se ejecuta la función index dentro de views.py
     path('', index, name='inicio'),
 
-    path('equipos/', equipos, name='equipos'),
+    path('equipos/', EquipoList.as_view(), name='equipos'),
+    path('create_equipo', EquipoCreate.as_view(), name='create_equipo'),
+    path('detail_equipo/<int:pk>/', EquipoDetail.as_view(), name='detail_equipo'),
+    path('update_equipo/<int:pk>/', EquipoUpdate.as_view(), name='update_equipo'),
+    path('delete_equipo/<int:pk>/', EquipoDelete.as_view(), name='delete_equipo'),
+    path('busqueda_equipo/', busquedaEquipo, name='busqueda_equipo'),
+    path('buscar_equipo/', buscarEquipo),
+
+
+    path('empleados/', EmpleadoList.as_view(), name='empleados'),
+    path('create_empleado', EmpleadoCreate.as_view(), name='create_empleado'),
+    path('detail_empleado/<int:pk>/', EmpleadoDetail.as_view(), name='detail_empleado'),
+    path('detail_empleado/<int:pk>/', EmpleadoDetail.as_view(), name='detail_empleado'),
+    path('update_empleado/<int:pk>/', EmpleadoUpdate.as_view(), name='update_empleado'),
+    path('delete_empleado/<int:pk>/', EmpleadoDelete.as_view(), name='delete_empleado'),
+    path('busqueda_empleado/', busquedaEmpleado, name='busqueda_empleado'),
+    path('buscar_empleado/', buscarEmpleado),
+
+
+
+
     path('mantenimientos/', mantenimientos, name='mantenimientos'),
-    path('empleados/', empleados, name='empleados'),
     path('mantenimiento_form/', mantenimientoForm, name='mantenimiento_form'),
-    path('buscar_mantenimiento/', buscarMantenimiento, name='buscar_mantenimiento'),
 
-    path('cursos/', cursos, name='cursos'),
-
-    #path('curso_form2/', cursoForm2, name='curso_form2'),
-
-    path('buscar_comision/', buscarComision, name='buscar_comision'),
-    path('buscar2/', buscar2, name='buscar2'),
-
-    
     
 ]

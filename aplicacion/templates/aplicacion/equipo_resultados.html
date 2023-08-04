@@ -1,4 +1,4 @@
-{% extends 'aplicacion/equipos.html' %}
+{% extends 'aplicacion/equipo_list.html' %}
 {% load static %}
 
 {% block contenido %}
@@ -27,5 +27,11 @@
     {% endfor %}
     </tbody>
 </table>
+<br>
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'busqueda_equipo' %}">Volver →</a>
+</div>
+
+<br>
 
 {% endblock contenido %}

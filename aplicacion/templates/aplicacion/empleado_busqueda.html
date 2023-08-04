@@ -1,0 +1,15 @@
+{% extends 'aplicacion/empleado_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h2>Ingresar el apellido del empleado:</h2>
+<br>
+<form action="/aplicacion/buscar_empleado/" method="get">
+    {% csrf_token %}
+    <input type="text" name="apellido" id="apellido">
+    <input type="submit" value="Buscar">
+</form>
+<br>
+
+{% endblock contenido %}
