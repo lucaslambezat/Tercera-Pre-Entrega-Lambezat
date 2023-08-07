@@ -1,14 +1,12 @@
-{% extends 'aplicacion/index.html' %}
+{% extends 'aplicacion/mantenimiento_list.html' %}
 {% load static %}
 
-{% block titulo %}            
-Mantenimientos
-{% endblock titulo %}
-
-{% block subtitulo %}            
-{% endblock subtitulo %}
-
 {% block contenido %}
+
+<h4>
+    Resultado de la búsqueda para el numero de operacion: {{numero_operacion}}
+</h4>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -25,9 +23,15 @@ Mantenimientos
         <td>{{ mantenimiento.descripcion }}</td>
         <td>{{ mantenimiento.planificado }}</td>
         <td>{{ mantenimiento.fecha }}</td>
-
     </tr>
     {% endfor %}
     </tbody>
 </table>
+<br>
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'busqueda_mantenimiento' %}">Volver →</a>
+</div>
+
+<br>
+
 {% endblock contenido %}

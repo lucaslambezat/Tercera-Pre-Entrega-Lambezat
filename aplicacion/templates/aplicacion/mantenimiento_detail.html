@@ -1,0 +1,32 @@
+{% extends 'aplicacion/mantenimiento_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Número de Operación</th>
+            <th>Descripción</th>
+            <th>Planificado</th>
+            <th>Fecha</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ object.numero_operacion }}</td>
+        <td>{{ object.descripcion }}</td>
+        <td>{{ object.planificado }}</td>
+        <td>{{ object.fecha }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'mantenimientos' %}">Volver →</a>
+</div>
+
+<br>
+
+{% endblock contenido %}

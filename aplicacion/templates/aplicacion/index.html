@@ -25,18 +25,28 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">LAMBEZAT S.R.L</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">LAMBEZAT S.R.L</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        {% if user.is_authenticated  %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'inicio' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">Novedades</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'equipos' %}">Equipos</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'mantenimientos' %}">Mantenimientos</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'empleados' %}">Empleados</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">{{ user.username|upper }} →</a></li>
+                        <li class="nav-item"><div class="text-center">
+                            <img src="{{ request.session.avatar }}" height="40px" weight="40px"/>
+                        </div></li>
+                        <li class="nav-item"><a class="btn btn-primary px-lg-4 py-1 py-lg-4" href="{% url 'logout' %}">LOGOUT</a></li>
+                        <li class="nav-item"><a class="btn btn-primary px-lg-4 py-1 py-lg-4" href="{% url 'admin:index' %}">ADMIN</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="btn btn-primary px-lg-4 py-1 py-lg-4" href="{% url 'login' %}">LOGIN</a></li>
+                        <li class="nav-item"></li><a class="btn btn-success" href="{% url 'register' %}">REGISTRO</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -72,7 +82,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="#">
                             <h2 class="post-title">Nuevos procedimientos contra incendios.</h2>
                             <h3 class="post-subtitle">Capacitación Obligatoria para todo el personal.</h3>
                         </a>
@@ -86,7 +96,7 @@
                     <hr class="my-4" />
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
+                        <a href="#"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
                         <p class="post-meta">
                             Posted by
                             <a href="#!">Start Bootstrap</a>
@@ -97,7 +107,7 @@
                     <hr class="my-4" />
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="#">
                             <h2 class="post-title">Science has not yet mastered prophecy</h2>
                             <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
                         </a>
@@ -111,7 +121,7 @@
                     <hr class="my-4" />
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="#">
                             <h2 class="post-title">Failure is not an option</h2>
                             <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
                         </a>

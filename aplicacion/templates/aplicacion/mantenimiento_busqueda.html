@@ -1,0 +1,15 @@
+{% extends 'aplicacion/mantenimiento_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h2>Ingresar el número de operación:</h2>
+<br>
+<form action="/aplicacion/buscar_mantenimiento/" method="get">
+    {% csrf_token %}
+    <input type="text" name="numero_operacion" id="numero_operacion">
+    <input type="submit" value="Buscar">
+</form>
+<br>
+
+{% endblock contenido %}

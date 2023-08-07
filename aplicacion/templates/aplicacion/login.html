@@ -1,0 +1,28 @@
+{% extends 'aplicacion/index.html' %}
+{% load static %}
+
+{% block titulo %}            
+Login
+{% endblock titulo %}
+
+{% block subtitulo %}            
+{% endblock subtitulo %}
+
+{% block contenido %}
+    {% if mensaje %}
+    <h4>
+        <p style="color:red" align="center">
+        {{ mensaje }}
+        </p>
+    </h4>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <br>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <br>
+{% endblock contenido %}

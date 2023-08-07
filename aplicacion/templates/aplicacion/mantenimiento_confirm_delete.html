@@ -1,0 +1,22 @@
+{% extends 'aplicacion/mantenimiento_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<form action="" method="POST">
+    {% csrf_token %}   
+    <div class="text-center">     
+        <h3>¿ Está seguro que desea eliminar el siguiente registro de mantenimiento ? <p style="color:red">{{ object.descripcion}}</p> </h3>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary btn-block text-uppercase" value="Confirmar">
+    </div>
+</form>
+<br>
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-primary text-uppercase" href="{% url 'mantenimientos' %}">Volver →</a>
+</div>
+
+<br>
+
+{% endblock contenido %}

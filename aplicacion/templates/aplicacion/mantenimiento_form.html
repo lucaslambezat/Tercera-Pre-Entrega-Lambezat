@@ -1,0 +1,18 @@
+{% extends 'aplicacion/mantenimiento_list.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h2>Registrar un nuevo nuevo mantenimiento.</h2>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <br>
+    <input type="submit" value="Enviar">
+</form>
+<br>
+
+{% endblock contenido %}
