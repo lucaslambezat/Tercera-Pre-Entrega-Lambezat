@@ -61,18 +61,18 @@ TEMPLATES
 
 PRUEBA DE LA PÁGINA WEB
 
-1. Luego de que este corriendo el servidor, ingresar a la dirección del sitio http://127.0.0.1:8000/aplicacion/
-2. Una vez en la página principal clickear en "REGISTRO".
-3. Crear un usuario con un nombre de usuario, contraseña y email.
-4. Al ser redirigido a la página principal, clickear en "LOGIN" e iniciar sesión con los datos ingresados previamente.
-5. Una vez dentro del sistema dirigirse al apartado de "EQUIPOS" en el menú superior.
-6. Crear un nuevo equipo en la BD, clickeando en "Nuevo Registro de Equipo" e ingresando luego los datos solicitados.
-7. Una vez creado el equipo, clickear en la lista el símbolo de la lupa para acceder a los detalles, luego presionar el botón "Volver".
-8. Modificar los datos, clickeando en el símbolo del lápiz con el cuaderno.
-9. Buscar el equipo creado, clickeando en "Búsqueda de Equipo" e ingresando la referencia. Luego presionar el botón "Volver".
-10. Eliminar el equipo creado, confirmando en el mensaje.
-11. Repetir los pasos 5-10 para los modelos restantes (Empleados y Mantenimientos).
-12. Cerrar sesión.
+    1. Luego de que este corriendo el servidor, ingresar a la dirección del sitio http://127.0.0.1:8000/aplicacion/
+    2. Una vez en la página principal clickear en "REGISTRO".
+    3. Crear un usuario con un nombre de usuario, contraseña y email.
+    4. Al ser redirigido a la página principal, clickear en "LOGIN" e iniciar sesión con los datos ingresados previamente.
+    5. Una vez dentro del sistema dirigirse al apartado de "EQUIPOS" en el menú superior.
+    6. Crear un nuevo equipo en la BD, clickeando en "Nuevo Registro de Equipo" e ingresando luego los datos solicitados.
+    7. Una vez creado el equipo, clickear en la lista el símbolo de la lupa para acceder a los detalles, luego presionar el botón "Volver".
+    8. Modificar los datos, clickeando en el símbolo del lápiz con el cuaderno.
+    9. Buscar el equipo creado, clickeando en "Búsqueda de Equipo" e ingresando la referencia. Luego presionar el botón "Volver".
+    10. Eliminar el equipo creado, confirmando en el mensaje.
+    11. Repetir los pasos 5-10 para los modelos restantes (Empleados y Mantenimientos).
+    12. Cerrar sesión.
 
 
 
